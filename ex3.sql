@@ -19,15 +19,13 @@ alter table livros3 add column editora varchar(50);
  --2. Adicione uma coluna chamada categoria que aceita até 25 caracteres.
 alter table livros3 add column categoria varchar(25);
  --3. Modifique a coluna preco para aceitar até 10 dígitos no total, mantendo 2 casas decimais.
-update livros3 set preco = numeric (10,2);
+alter table livros3 alter column preco type numeric (10,2);
  --4. Adicione uma coluna chamada isbn que aceita até 20 caracteres.
 alter table livros3 add column isbn varchar(20);
  --5. Remova a coluna isbn (descobrimos que não vamos usar).
 ALTER TABLE livros3 drop column isbn;
  --6. Renomeie a coluna ano_publicacao para ano.
--- conferir -> alter table livros3 drop column ano_publicacao;
--- conferir ->insert into livros3 ano integer;
-
+alter table livros3 rename column ano_publicacao to ano;
  --7. Adicione uma coluna desconto do tipo NUMERIC(5,2) com valor padrão 0.00.
 alter table livros3 add column desconto numeric(5,2) default 0;
  --8. Atualize o livro "1984" definindo a editora como "Companhia das Letras" e a categoria como "Ficção Científica".
